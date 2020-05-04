@@ -1,0 +1,74 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "sku": 5,
+      "price": 10,
+      "isFreeShipping": true,
+      "category": "mobile"
+    },
+
+    {
+      "id": 2,
+      "sku": 6,
+      "price": 14.9,
+      "isFreeShipping": true,
+      "category": "mobile"
+    },
+
+    {
+      "id": 3,
+      "sku": 7,
+      "price": 14.9,
+      "isFreeShipping": true,
+      "category": "mobile"
+    },
+
+    {
+      "id": 4,
+      "sku": 8,
+      "price": 25.9,
+      "isFreeShipping": false,
+      "category": "laptop"
+    },
+
+    {
+      "id": 5,
+      "sku": 1,
+      "price": 10.9,
+      "isFreeShipping": false,
+      "category": "laptop"
+    },
+
+    {
+      "id": 6,
+      "sku": 2,
+      "price": 49.9,
+      "isFreeShipping": false,
+      "category": "laptop"
+    },
+
+    {
+      "id": 7,
+      "sku": 3,
+      "title": "laptop",
+      "price": 22.5,
+      "category": "laptop"
+    },
+
+    {
+      "id": 8,
+      "sku": 4,
+      "title": "laptop",
+      "price": 18.7,
+      "category": "laptop"
+    },
+    {
+      "id": 9,
+      "sku": 9,
+      "title": "laptop",
+      "price": 134.9,
+      "category": "laptop"
+    }
+  ]
+}
