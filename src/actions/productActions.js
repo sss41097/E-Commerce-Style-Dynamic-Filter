@@ -4,18 +4,18 @@ import {
   FILTER_PRODUCTS_BY_CATEGORY,
   FILTER_PRODUCTS_BY_PRICE_RANGE,
 } from "./types";
-
+import da from "../db.json";
 export const fetchProducts = () => (dispatch) => {
-  fetch("/products")
-    .then((res) => res.json())
-    .catch((err) =>
-      fetch("db.json")
-        .then((res) => res.json())
-        .then((data) => data.products)
-    )
-    .then((data) => {
-      dispatch({ type: FETCH_PRODUCTS, payload: data });
-    });
+  // fetch("../db.json")
+  //   .then((res) => res.json())
+  //   .catch((err) =>
+  //     fetch("db.json")
+  //       .then((res) => res.json())
+  //       .then((data) => data.products)
+  //   )
+  //   .then((data) => {
+  dispatch({ type: FETCH_PRODUCTS, payload: da.products });
+  // });
 };
 
 export const filterProducts = (products, type) => (dispatch) => {

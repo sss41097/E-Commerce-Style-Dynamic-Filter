@@ -10,7 +10,7 @@ class Products extends Component {
       <div className="col-md-4" key={product.id}>
         <div className="thumbnail text-center">
           <img
-            src={`products/${product.sku}.jfif`}
+            src={process.env.PUBLIC_URL + `/products/${product.sku}.jfif`}
             alt={product.title}
             style={{ height: "200px", width: "200px" }}
           />

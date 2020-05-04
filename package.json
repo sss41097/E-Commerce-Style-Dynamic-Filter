@@ -17,7 +17,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "server": "json-server public/db.json --port 8000",
+    "server": "",
     "build": "react-scripts build",
     "predeploy": "yarn run build",
     "deploy": "gh-pages -d build",
@@ -33,6 +33,5 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ],
-  "proxy": "http://localhost:8000"
+  ]
 }
