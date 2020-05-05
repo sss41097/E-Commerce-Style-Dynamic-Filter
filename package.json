@@ -17,7 +17,6 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "server": "",
     "build": "react-scripts build",
     "predeploy": "yarn run build",
     "deploy": "gh-pages -d build",
