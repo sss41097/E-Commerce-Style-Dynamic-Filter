@@ -5,6 +5,7 @@ import Filter from "./components/Filter";
 import store from "./store";
 import "./App.css";
 
+// Thsi is the main App component having Filter and Products component
 class App extends Component {
   render() {
     return (

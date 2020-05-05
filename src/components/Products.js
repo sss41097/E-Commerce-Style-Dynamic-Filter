@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { fetchProducts } from "../actions/productActions";
+
+// this class simply shows the all the products after or before filtering
+
 class Products extends Component {
   componentDidMount() {
     this.props.fetchProducts();

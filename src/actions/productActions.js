@@ -4,20 +4,14 @@ import {
   FILTER_PRODUCTS_BY_CATEGORY,
   FILTER_PRODUCTS_BY_PRICE_RANGE,
 } from "./types";
-import da from "../db.json";
+import Data from "../db.json";
+
+// this will load products from local json file.
 export const fetchProducts = () => (dispatch) => {
-  // fetch("../db.json")
-  //   .then((res) => res.json())
-  //   .catch((err) =>
-  //     fetch("db.json")
-  //       .then((res) => res.json())
-  //       .then((data) => data.products)
-  //   )
-  //   .then((data) => {
-  dispatch({ type: FETCH_PRODUCTS, payload: da.products });
-  // });
+  dispatch({ type: FETCH_PRODUCTS, payload: Data.products });
 };
 
+// this function filters products based on category
 export const filterProducts = (products, category, range) => (dispatch) => {
   console.log("inside component");
   console.log(range);
@@ -48,10 +42,12 @@ export const filterProducts = (products, category, range) => (dispatch) => {
   });
 };
 
+// this small function is used to reset sort value to default when even filter is used.
 export const reset_sort = () => (dispatch) => {
   dispatch({ type: "RESET_SORT" });
 };
 
+// this function is used to filter products based on price range
 export const priceRangeFunc = (products, category, range) => (dispatch) => {
   console.log(range);
   console.log(category);
@@ -81,6 +77,7 @@ export const priceRangeFunc = (products, category, range) => (dispatch) => {
   });
 };
 
+// this function is used to sort products
 export const sortProducts = (items, sort) => (dispatch) => {
   const products = items.slice();
   if (sort !== "") {

@@ -6,6 +6,9 @@ import {
   priceRangeFunc,
   reset_sort,
 } from "../actions/productActions";
+
+// this class based component shows the panel containing filters and changes the state of products
+// if filtering is done
 class Filter extends Component {
   render() {
     {

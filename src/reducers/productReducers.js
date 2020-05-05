@@ -6,6 +6,7 @@ import {
   RESET_SORT,
 } from "../actions/types";
 
+// below is the initial state of all variables when page loads first time
 const initState = {
   items: [],
   filteredItems: [],
@@ -13,6 +14,8 @@ const initState = {
   sort: "",
   priceRange: "",
 };
+
+// below function is the reducer for executing various filtering actions
 export default function (state = initState, action) {
   switch (action.type) {
     case FETCH_PRODUCTS:
