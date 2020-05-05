@@ -15,7 +15,10 @@ class Filter extends Component {
     }
     return (
       <div className="row">
-        <div className="col-md-2">{`${this.props.filteredProducts.length} products found.`}</div>
+        <div
+          className="col-md-2"
+          style={{ color: "black" }}
+        >{`${this.props.filteredProducts.length} products found.`}</div>
         <div className="col-md-3">
           <label>
             Filter By Price Range
