@@ -7,15 +7,22 @@ class Products extends Component {
   }
   render() {
     const productItems = this.props.products.map((product) => (
-      <div className="col-md-4" key={product.id}>
-        <div className="thumbnail text-center">
+      <div
+        className="col-md-4"
+        key={product.id}
+        style={{ borderRadius: "25px" }}
+      >
+        <div
+          className="thumbnail text-center"
+          style={{ borderRadius: "25px", backgroundColor: "#a3c1ce" }}
+        >
           <img
             src={process.env.PUBLIC_URL + `/products/${product.sku}.jfif`}
             alt={product.title}
-            style={{ height: "200px", width: "200px" }}
+            style={{ height: "200px", width: "200px", borderRadius: "25px" }}
           />
-          <p>{product.title}</p>
-          <b>{"Rs: " + product.price}</b>
+          <p style={{ color: "black" }}>{product.title}</p>
+          <b style={{ color: "black" }}>{"Rs: " + product.price}</b>
         </div>
       </div>
     ));

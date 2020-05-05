@@ -3,6 +3,7 @@
     {
       "id": 1,
       "sku": 5,
+      "title": "mobile",
       "price": 10,
       "isFreeShipping": true,
       "category": "mobile"
@@ -11,6 +12,7 @@
     {
       "id": 2,
       "sku": 6,
+      "title": "mobile",
       "price": 14.9,
       "isFreeShipping": true,
       "category": "mobile"
@@ -19,6 +21,7 @@
     {
       "id": 3,
       "sku": 7,
+      "title": "mobile",
       "price": 14.9,
       "isFreeShipping": true,
       "category": "mobile"
@@ -27,14 +30,16 @@
     {
       "id": 4,
       "sku": 8,
+      "title": "mobile",
       "price": 25.9,
       "isFreeShipping": false,
-      "category": "laptop"
+      "category": "mobile"
     },
 
     {
       "id": 5,
       "sku": 1,
+      "title": "laptop",
       "price": 10.9,
       "isFreeShipping": false,
       "category": "laptop"
@@ -43,6 +48,7 @@
     {
       "id": 6,
       "sku": 2,
+      "title": "laptop",
       "price": 49.9,
       "isFreeShipping": false,
       "category": "laptop"

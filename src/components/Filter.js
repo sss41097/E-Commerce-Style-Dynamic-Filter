@@ -4,9 +4,15 @@ import {
   filterProducts,
   sortProducts,
   priceRangeFunc,
+  reset_sort,
 } from "../actions/productActions";
 class Filter extends Component {
   render() {
+    {
+      console.log("inside component");
+      console.log(this.props.category);
+      console.log(this.props.priceRange);
+    }
     return (
       <div className="row">
         <div className="col-md-2">{`${this.props.filteredProducts.length} products found.`}</div>
@@ -17,14 +23,15 @@ class Filter extends Component {
               className="form-control"
               value={this.props.priceRange}
               onChange={(event) => {
-                if (filterProducts !== "")
-                  this.props.priceRangeFunc(
-                    this.props.products,
-                    event.target.value
-                  );
+                this.props.priceRangeFunc(
+                  this.props.products,
+                  this.props.category,
+                  event.target.value
+                );
+                this.props.reset_sort();
               }}
             >
-              <option value="">Select</option>
+              <option value="">No Filter</option>
               <option value="0-5">Rs 0 - Rs 5</option>
               <option value="5-10">Rs 5 - Rs 10</option>
               <option value="10-20">Rs 10 - Rs 20</option>
@@ -44,11 +51,14 @@ class Filter extends Component {
               onChange={(event) => {
                 this.props.filterProducts(
                   this.props.products,
-                  event.target.value
+                  event.target.value,
+                  this.props.priceRange
                 );
+
+                this.props.reset_sort();
               }}
             >
-              <option value="">Select</option>
+              <option value="">No Filter</option>
               <option value="laptop">laptop</option>
               <option value="mobile">Mobile</option>
             </select>
@@ -81,7 +91,7 @@ class Filter extends Component {
 const mapStateToProps = (state) => ({
   products: state.products.items,
   filteredProducts: state.products.filteredItems,
-  size: state.products.size,
+  category: state.products.category,
   sort: state.products.sort,
   priceRange: state.products.priceRange,
 });
@@ -89,4 +99,5 @@ export default connect(mapStateToProps, {
   filterProducts,
   sortProducts,
   priceRangeFunc,
+  reset_sort,
 })(Filter);

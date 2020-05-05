@@ -1,8 +1,9 @@
 import {
   FETCH_PRODUCTS,
   FILTER_PRODUCTS_BY_CATEGORY,
-  ORDER_PRODUCTS_BY_PRICE,
+  ORDER_PRODUCTS,
   FILTER_PRODUCTS_BY_PRICE_RANGE,
+  RESET_SORT,
 } from "../actions/types";
 
 const initState = {
@@ -20,9 +21,9 @@ export default function (state = initState, action) {
       return {
         ...state,
         filteredItems: action.payload.items,
-        category: action.payload.type,
+        category: action.payload.category,
       };
-    case ORDER_PRODUCTS_BY_PRICE:
+    case ORDER_PRODUCTS:
       return {
         ...state,
         filteredItems: action.payload.items,
@@ -34,6 +35,11 @@ export default function (state = initState, action) {
         ...state,
         filteredItems: action.payload.items,
         priceRange: action.payload.range,
+      };
+    case RESET_SORT:
+      return {
+        ...state,
+        sort: "",
       };
 
     default:

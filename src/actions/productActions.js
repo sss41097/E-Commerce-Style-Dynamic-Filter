@@ -1,6 +1,6 @@
 import {
   FETCH_PRODUCTS,
-  ORDER_PRODUCTS_BY_PRICE,
+  ORDER_PRODUCTS,
   FILTER_PRODUCTS_BY_CATEGORY,
   FILTER_PRODUCTS_BY_PRICE_RANGE,
 } from "./types";
@@ -18,19 +18,49 @@ export const fetchProducts = () => (dispatch) => {
   // });
 };
 
-export const filterProducts = (products, type) => (dispatch) => {
+export const filterProducts = (products, category, range) => (dispatch) => {
+  console.log("inside component");
+  console.log(range);
+  console.log(category);
+  let ranges = "";
+
+  let items =
+    category === ""
+      ? products
+      : products.filter((x) => x.category === category);
+
+  if (range !== "") ranges = range.split("-");
+
+  console.log(range);
+
   dispatch({
     type: FILTER_PRODUCTS_BY_CATEGORY,
     payload: {
-      type: type,
+      category: category,
       items:
-        type === "" ? products : products.filter((x) => x.category == type),
+        range === ""
+          ? items
+          : items.filter(
+              (x) =>
+                x.price >= parseInt(ranges[0]) && x.price <= parseInt(ranges[1])
+            ),
     },
   });
 };
 
-export const priceRangeFunc = (products, range) => (dispatch) => {
+export const reset_sort = () => (dispatch) => {
+  dispatch({ type: "RESET_SORT" });
+};
+
+export const priceRangeFunc = (products, category, range) => (dispatch) => {
+  console.log(range);
+  console.log(category);
   let ranges = "";
+
+  let items =
+    category === ""
+      ? products
+      : products.filter((x) => x.category === category);
 
   if (range !== "") ranges = range.split("-");
 
@@ -42,8 +72,8 @@ export const priceRangeFunc = (products, range) => (dispatch) => {
       range: range,
       items:
         range === ""
-          ? products
-          : products.filter(
+          ? items
+          : items.filter(
               (x) =>
                 x.price >= parseInt(ranges[0]) && x.price <= parseInt(ranges[1])
             ),
@@ -67,7 +97,7 @@ export const sortProducts = (items, sort) => (dispatch) => {
     products.sort((a, b) => (a.id > b.id ? 1 : -1));
   }
   dispatch({
-    type: ORDER_PRODUCTS_BY_PRICE,
+    type: ORDER_PRODUCTS,
     payload: {
       sort: sort,
       items: products,
